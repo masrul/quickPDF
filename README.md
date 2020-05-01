@@ -1,6 +1,6 @@
 # quickPDF 
 
-This command line utility tool helps quick visualization probability distribution 
+This command line utility tool helps quick visualization of probability distribution 
 of data from a ASCII file.     <br />
 line argument. 
 
