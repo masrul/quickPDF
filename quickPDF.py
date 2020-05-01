@@ -17,6 +17,7 @@ class PDF:
         self.normType='sum' 
         self.outFile='out.dat' 
         self.writeStatus=False 
+        self.outImage=None 
     
     def exe(self): 
         self.readFile() 
@@ -26,6 +27,9 @@ class PDF:
         if self.writeStatus: 
             self.write() 
     
+    def setOutImage(self,fileName):
+        self.outImage=fileName 
+
     def setWriteStatus(self):
         self.writeStatus=True 
 
@@ -47,9 +51,16 @@ class PDF:
 
     def plot(self): 
         plt.scatter(self.binValues,self.pdf,color='red',s=20)
+        plt.plot(self.binValues,self.pdf,color='red',linewidth=1.5)
         plt.xlabel(r'$x$')	
         plt.ylabel(r'$\rho(x)$') 
+        plt.ylim(0,max(self.pdf)*1.05)  # 5% higher than pdf 
+        
+        if self.outImage:  
+            plt.savefig(self.outImage,dpi=150,bbox_inches='tight')
+        
         plt.show() 
+
 
     def readFile(self): 
         fileHandler=open(self.file,'r') 
@@ -93,7 +104,6 @@ class PDF:
             self.pdf[idx]+=1 
 
         if(self.normalize): 
-            # Normalize such that sum(binWidth*height[i])=1
             if self.normType=='sum': 
                 for i in range(self.nbins):
                     self.pdf[i]=self.pdf[i]/(float(len(self.data)))  
@@ -105,7 +115,8 @@ class PDF:
 
         for i in range(self.nbins): 
             fileHandler.write('%16.8f%16.8f\n'%(self.binValues[i],self.pdf[i]))
-
+        
+        fileHandler.close() 
 
 
 
@@ -158,6 +169,12 @@ def main():
         action='store_true',
         help='Flag for writing results into a file,'+
         'default is not set'
+    ) 
+
+    parser.add_argument('-img','--dump-image',
+        metavar='',
+        type=str, 
+        help='Name of  output image file' 
     )
 
 
@@ -181,6 +198,8 @@ def main():
         myPDF.setWriteStatus() 
         if args.out_file: 
             myPDF.setOutFile(args.out_file) 
+    if args.dump_image:
+        myPDF.setOutImage(args.dump_image)  
 
     myPDF.exe()  
 

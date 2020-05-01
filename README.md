@@ -31,6 +31,9 @@ optional arguments:   <br />
 + -w,--write            
     > Flag for writing results into a file,default is not set 
 
++ -img,--dump-image            
+    > Name of output image file  
+
 ## Example
 
 + python quickPDF.py example1.dat  
