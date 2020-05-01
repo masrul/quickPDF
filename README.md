@@ -41,4 +41,5 @@ optional arguments:   <br />
 
 ### Output 
 ![](./fig.png =500x) 
+<img src="./fig.png" width="48">
 
