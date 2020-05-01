@@ -40,5 +40,5 @@ optional arguments:   <br />
 + python quickPDF.py example2.dat --column 1 
 
 ### Output 
-![](./fig.png) 
+![](./fig.png =500x) 
 
