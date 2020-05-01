@@ -40,5 +40,5 @@ optional arguments:   <br />
 + python quickPDF.py example2.dat --column 1 
 
 ### Output 
-<img src="./fig.png" align="center" width="300">
+<img src="./fig.png" align="middle" width="400">
 
