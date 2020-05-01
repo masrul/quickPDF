@@ -40,6 +40,5 @@ optional arguments:   <br />
 + python quickPDF.py example2.dat --column 1 
 
 ### Output 
-![](./fig.png =500x) 
-<img src="./fig.png" width="48">
+<img src="./fig.png" align="center" width="300">
 
