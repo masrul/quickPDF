@@ -4,8 +4,7 @@ This command line utility tool helps quick visualization of probability distribu
 of data from a ASCII file.     <br />
 
 
-
-usage: quickPDF.py [-h] [-nbins] [-o] [-c] [-n] [-nt] [--write] file  <br />  
+usage: quickPDF.py [-h] [-nbins] [-o] [-c] [-n] [-img] file
 
 <br />
 
