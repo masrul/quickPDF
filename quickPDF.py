@@ -13,10 +13,7 @@ class PDF:
         self.colID=0     
         self.nbins=50   
         self.normalize=False 
-        self.outFile='out_pdf.dat' 
-        self.normType='sum' 
-        self.outFile='out.dat' 
-        self.writeStatus=False 
+        self.outFile=None  
         self.outImage=None 
     
     def exe(self): 
@@ -24,23 +21,17 @@ class PDF:
         self.getPDF() 
         self.plot() 
         
-        if self.writeStatus: 
+        if self.outFile: 
             self.write() 
     
     def setOutImage(self,fileName):
         self.outImage=fileName 
 
-    def setWriteStatus(self):
-        self.writeStatus=True 
-
-    def setNormType(self,normType): 
-        self.normType=normType 
-
     def setColID(self,colID): 
         self.colID=colID 
 
-    def setNormalize(self,boolOpt): 
-        self.normalize=boolOpt 
+    def setNormalize(self,normType):  
+        self.normalize=normType  
 
     def setBins(self,nbins):
         self.nbins=nbins 
@@ -103,13 +94,13 @@ class PDF:
             idx=math.floor((self.data[i]-start)/binWidth) 
             self.pdf[idx]+=1 
 
-        if(self.normalize): 
-            if self.normType=='sum': 
-                for i in range(self.nbins):
-                    self.pdf[i]=self.pdf[i]/(float(len(self.data)))  
-            elif self.normType=='integral': 
-                for i in range(self.nbins):
-                    self.pdf[i]=self.pdf[i]/(binWidth*float(len(self.data)))  
+        if self.normalize=='sum': 
+            for i in range(self.nbins):
+                self.pdf[i]=self.pdf[i]/(float(len(self.data)))  
+        elif self.normalize=='integral': 
+            for i in range(self.nbins):
+                self.pdf[i]=self.pdf[i]/(binWidth*float(len(self.data)))  
+
     def write(self): 
         fileHandler=open(self.outFile,'w') 
 
@@ -148,27 +139,12 @@ def main():
         help='Column ID of data for analysis, default is 0'
     ) 
 
-    # parser.add_argument('-bw','--bin-width',
-    #     metavar='',type=float,
-    #     help="set the width of bin. Don't specifiy both -nbins and -bw together"
-    # )
     
     parser.add_argument('-n','--normalize',
-        action='store_true',
-        help='Set normalize true, default false'
-    )
-    
-    parser.add_argument('-nt','--norm-type',
-        metavar='',
+        metavar='',type=str, 
         help="1) sum: sum of all bin heights is 1" + 
         "2) integral: sum of (binwidth X bin height) is 1," + 
         "default is sum "
-        ) 
-    
-    parser.add_argument('-w','--write',
-        action='store_true',
-        help='Flag for writing results into a file,'+
-        'default is not set'
     ) 
 
     parser.add_argument('-img','--dump-image',
@@ -190,14 +166,11 @@ def main():
         myPDF.setBins(args.nbins) 
 
     if args.normalize: 
-        myPDF.setNormalize(True) 
-        if args.norm_type: 
-            myPDF.setNormType(args.norm_type)
+        myPDF.setNormalize(args.normalize)  
    
-    if args.write: 
-        myPDF.setWriteStatus() 
-        if args.out_file: 
-            myPDF.setOutFile(args.out_file) 
+    if args.out_file: 
+        myPDF.setOutFile(args.out_file) 
+    
     if args.dump_image:
         myPDF.setOutImage(args.dump_image)  
 

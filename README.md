@@ -23,14 +23,8 @@ optional arguments:   <br />
 +  -c , --column       
     > Column ID of data for analysis, default is 0
 +  -n, --normalize     
-    > Set normalize true, default false
-+  -nt , --norm-type   
     + sum: sum of all bin heights is 1
     + integral: sum of (binwidth X bin height) is 1.
-    > default is sum
-+ -w,--write            
-    > Flag for writing results into a file,default is not set 
-
 + -img,--dump-image            
     > Name of output image file  
 
