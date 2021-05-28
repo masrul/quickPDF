@@ -3,8 +3,6 @@ quickPDF
 This command line utility tool helps quick visualization of probability distribution 
 of data from an ASCII file from terminal. 
 
-&nbsp;
-
 ### Code Organization
 --- 
 <img src="Images/Tree.jpg" width="300"/> 
