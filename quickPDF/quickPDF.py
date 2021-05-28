@@ -175,9 +175,6 @@ def main():
         myPDF.setOutImage(args.dump_image)  
 
     myPDF.exe()  
-
-if __name__=='__main__': 
-    main() 	
  
 
  

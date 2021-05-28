@@ -1,12 +1,34 @@
-# quickPDF 
-
+quickPDF 
+-----
 This command line utility tool helps quick visualization of probability distribution 
-of data from a ASCII file.     <br />
+of data from an ASCII file from terminal. 
+
+&nbsp;
+
+### Code Organization
+--- 
+<img src="Images/Tree.jpg" width="300"/> 
+
+&nbsp;
+&nbsp;
+
+### Installation
+---
+```bash 
+git clone https://github.com/masrul/quickPDF  
+cd quickPDF 
+pip install . 
+```
+&nbsp;
+&nbsp;
 
 
-usage: quickPDF.py [-h] [-nbins] [-o] [-c] [-n] [-img] file
 
-<br />
+
+Usage
+--- 
+quickPDF [-h] [-nbins] [-o] [-c] [-n] [-img] file
+
 
 positional arguments:   <br />
 + file 
@@ -27,11 +49,13 @@ optional arguments:   <br />
 + -img,--dump-image            
     > Name of output image file  
 
-## Example
+Examples
+---
+```bash 
+quickPDF example1.dat  
+quickPDF example2.dat --column 1 
+```
+<img src="Images/fig.png" align="middle" width="400">
 
-+ python quickPDF.py example1.dat  
-+ python quickPDF.py example2.dat --column 1 
-
-### Output 
-<img src="./fig.png" align="middle" width="400">
-
+### Copyright 
+Masrul Huda (c) 2021
