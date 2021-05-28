@@ -4,8 +4,8 @@ import sys
 import math 
 import argparse  
 
-# PDF is not your protected document file 
-# It is probability distribution function 
+# PDF: Probability distribution function
+
 class PDF: 
     
     def __init__(self,fileName): 
