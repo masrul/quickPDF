@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="quickPDF",
     version="0.1.0",
-    description="A python toolkit to fit potential energy surface data",
+    description="A CLI for visualizing probability distribution",
     url="https://github.com/masrul/quickPDF",
     author="Masrul Huda",
     author_email="mmh568@msstate.edu",
