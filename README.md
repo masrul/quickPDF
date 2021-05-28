@@ -1,4 +1,4 @@
-quickPDF 
+### quickPDF 
 -----
 This command line utility tool helps quick visualization of probability distribution 
 of data from an ASCII file from terminal. 
@@ -23,7 +23,7 @@ pip install .
 
 
 
-Usage
+### Usage
 --- 
 quickPDF [-h] [-nbins] [-o] [-c] [-n] [-img] file
 
@@ -47,7 +47,7 @@ optional arguments:   <br />
 + -img,--dump-image            
     > Name of output image file  
 
-Examples
+### Examples
 ---
 ```bash 
 quickPDF example1.dat  
