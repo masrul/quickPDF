@@ -53,7 +53,7 @@ optional arguments:   <br />
 quickPDF example1.dat  
 quickPDF example2.dat --column 1 
 ```
-<img src="Images/fig.png" align="middle" width="400">
+<img src="Images/fig.png" align="middle" width="600">
 
 ### Copyright 
 Masrul Huda (c) 2021

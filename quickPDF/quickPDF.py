@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
+from matplotlib import ticker
 import sys   
 import math 
 import argparse  
@@ -43,12 +44,17 @@ class PDF:
     def plot(self): 
         plt.scatter(self.binValues,self.pdf,color='red',s=20)
         plt.plot(self.binValues,self.pdf,color='red',linewidth=1.5)
+        minor_locator = ticker.AutoMinorLocator(2)
+        plt.gca().xaxis.set_minor_locator(minor_locator)
+        plt.gca().yaxis.set_minor_locator(minor_locator)
+        plt.grid(linestyle='--', linewidth=0.3)
         plt.xlabel(r'$x$')	
         plt.ylabel(r'$\rho(x)$') 
         plt.ylim(0,max(self.pdf)*1.05)  # 5% higher than pdf 
         
+
         if self.outImage:  
-            plt.savefig(self.outImage,dpi=150,bbox_inches='tight')
+            plt.savefig(self.outImage,dpi=500,bbox_inches='tight')
         
         plt.show() 
 
